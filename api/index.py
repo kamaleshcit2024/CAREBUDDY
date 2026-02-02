@@ -12,6 +12,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "CJC API is running. Visit /health for status."}
+
 @app.get("/health")
 async def health_check():
     return {"status": "healthy", "service": "Cancer Journey Companion API"}
